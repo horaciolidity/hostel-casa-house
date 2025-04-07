@@ -7,39 +7,40 @@
     <link rel="stylesheet" href="styles.css">
 </head>
   <style>
-/* Variables de color y tipografía */
+/* Estilo Moderno/Vibrante para Hostel */
 :root {
-    --primary-color: #FF6B6B;
-    --secondary-color: #4ECDC4;
-    --accent-color: #FFE66D;
-    --dark-color: #2D3047;
-    --light-color: #F7FFF7;
-    --font-title: 'Playfair Display', serif;
-    --font-body: 'Poppins', sans-serif;
+    --neon-blue: #00f3ff;
+    --electric-pink: #ff006e;
+    --lime-green: #d0ff00;
+    --deep-purple: #240046;
+    --jet-black: #2a2a2a;
+    --font-accent: 'Bebas Neue', cursive;
+    --font-main: 'Montserrat', sans-serif;
 }
 
-/* Reset y Estilos Generales */
+/* Reset Extendido */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: var(--font-body);
-    background-color: var(--light-color);
-    color: var(--dark-color);
-    line-height: 1.6;
+    font-family: var(--font-main);
+    background: var(--jet-black);
+    color: white;
+    overflow-x: hidden;
 }
 
-/* Encabezado y Navegación */
+/* Header Estilo Graffiti */
 header {
-    background: var(--dark-color);
-    padding: 1rem 0;
+    background: var(--deep-purple);
+    border-bottom: 3px solid var(--neon-blue);
+    padding: 1.5rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
 nav {
@@ -48,193 +49,224 @@ nav {
     padding: 0 2rem;
 }
 
-nav ul {
+.nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    list-style: none;
 }
 
-nav ul li {
-    margin: 0 1rem;
+.logo {
+    font-family: var(--font-accent);
+    font-size: 2.5rem;
+    color: var(--neon-blue);
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
 }
 
-nav ul li a {
-    color: var(--light-color);
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
     text-decoration: none;
-    font-weight: 500;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
     padding: 0.5rem 1rem;
-    border-radius: 25px;
+    border-radius: 30px;
     transition: all 0.3s ease;
-}
-
-nav ul li a:hover {
-    background: var(--primary-color);
-    color: var(--light-color);
-}
-
-/* Sección Hero */
-#inicio {
     position: relative;
-    height: 80vh;
+}
+
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--electric-pink);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::before {
+    width: 100%;
+}
+
+/* Hero Section Estilo Urbano */
+#hero {
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    color: var(--light-color);
+    background: linear-gradient(45deg, var(--deep-purple) 30%, var(--jet-black) 70%);
+    position: relative;
     overflow: hidden;
 }
 
-#inicio::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
-}
-
-#inicio .hero-content {
+.hero-content {
+    text-align: center;
     position: relative;
     z-index: 1;
-    max-width: 800px;
-    padding: 2rem;
 }
 
-#inicio h1 {
-    font-family: var(--font-title);
-    font-size: 3.5rem;
+.hero-title {
+    font-family: var(--font-accent);
+    font-size: 5rem;
+    text-transform: uppercase;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, var(--neon-blue), var(--lime-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
 }
 
-/* Sección Servicios */
-#servicios {
-    background: var(--light-color);
+/* Tarjetas con Efecto Hover */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
     padding: 4rem 2rem;
 }
 
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
 .service-card {
-    background: white;
-    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-}
-
-.service-card i {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
-/* Calendario Mejorado */
-.calendar-container {
-    max-width: 800px;
-    margin: 2rem auto;
-    background: white;
     padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.calendar-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-    margin-top: 1rem;
-}
-
-.calendar-day {
-    padding: 1rem;
-    text-align: center;
-    background: #f8f9fa;
-    border-radius: 8px;
-    transition: all 0.2s ease;
-}
-
-.calendar-day.reservado {
-    background: var(--primary-color);
-    color: white;
-}
-
-.calendar-day:hover:not(.reservado) {
-    background: var(--secondary-color);
-    color: white;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
 }
 
-/* Botón WhatsApp Flotante */
-.whatsapp-float {
+.service-card:hover {
+    transform: translateY(-10px) rotate(3deg);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.2);
+}
+
+/* Calendario Estilo Cyber */
+.calendar-cyber {
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid var(--neon-blue);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    box-shadow: 0 0 40px rgba(0, 243, 255, 0.1);
+}
+
+.day-cell {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 243, 255, 0.1);
+    padding: 1rem;
+    color: var(--neon-blue);
+    position: relative;
+    overflow: hidden;
+}
+
+.day-cell.reservado {
+    background: var(--electric-pink);
+    color: white;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px var(--electric-pink);
+    }
+    to {
+        box-shadow: 0 0 20px var(--electric-pink);
+    }
+}
+
+/* Botón WhatsApp Cyber */
+.whatsapp-cyber {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    background: #25D366;
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+    background: var(--lime-green);
+    color: var(--jet-black);
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
     display: flex;
     align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    gap: 0.5rem;
+    border: 2px solid transparent;
     transition: all 0.3s ease;
-    text-decoration: none;
 }
 
-.whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+.whatsapp-cyber:hover {
+    background: transparent;
+    border-color: var(--lime-green);
+    color: var(--lime-green);
+    transform: scale(1.05);
 }
 
-/* Responsive Design */
+/* Galería Dinámica */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.gallery-item {
+    aspect-ratio: 1;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    z-index: 100;
+}
+
+/* Media Queries para Mobile */
 @media (max-width: 768px) {
-    nav ul {
+    .nav-container {
         flex-direction: column;
-        text-align: center;
-        padding: 1rem 0;
+        gap: 1rem;
     }
-
-    nav ul li {
-        margin: 0.5rem 0;
+    
+    .hero-title {
+        font-size: 3rem;
     }
-
-    #inicio h1 {
-        font-size: 2.5rem;
-    }
-
+    
     .services-grid {
         grid-template-columns: 1fr;
     }
+    
+    .whatsapp-cyber {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
 }
 
-/* Mejoras de Tipografía */
-h2 {
-    font-family: var(--font-title);
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: var(--dark-color);
+/* Efectos Especiales */
+::selection {
+    background: var(--electric-pink);
+    color: white;
 }
 
-p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
+.scroll-effect {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
 }
 
+.scroll-effect.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
   </style>
 <body>
     <header>
