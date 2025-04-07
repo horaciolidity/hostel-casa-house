@@ -4,359 +4,416 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CASA HOUSE - Hostel en Mendoza</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 </head>
-  <style>
-/* Estilo Moderno/Vibrante para Hostel */
-:root {
-    --neon-blue: #00f3ff;
-    --electric-pink: #ff006e;
-    --lime-green: #d0ff00;
-    --deep-purple: #240046;
-    --jet-black: #2a2a2a;
-    --font-accent: 'Bebas Neue', cursive;
-    --font-main: 'Montserrat', sans-serif;
-}
-
-/* Reset Extendido */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: var(--font-main);
-    background: var(--jet-black);
-    color: white;
-    overflow-x: hidden;
-}
-
-/* Header Estilo Graffiti */
-header {
-    background: var(--deep-purple);
-    border-bottom: 3px solid var(--neon-blue);
-    padding: 1.5rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-nav {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-family: var(--font-accent);
-    font-size: 2.5rem;
-    color: var(--neon-blue);
-    text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
-}
-
-.nav-links {
-    display: flex;
-    gap: 2rem;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 1px;
-    padding: 0.5rem 1rem;
-    border-radius: 30px;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.nav-links a::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background: var(--electric-pink);
-    transition: width 0.3s ease;
-}
-
-.nav-links a:hover::before {
-    width: 100%;
-}
-
-/* Hero Section Estilo Urbano */
-#hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(45deg, var(--deep-purple) 30%, var(--jet-black) 70%);
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-content {
-    text-align: center;
-    position: relative;
-    z-index: 1;
-}
-
-.hero-title {
-    font-family: var(--font-accent);
-    font-size: 5rem;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-    background: linear-gradient(45deg, var(--neon-blue), var(--lime-green));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
-}
-
-/* Tarjetas con Efecto Hover */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 4rem 2rem;
-}
-
-.service-card {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 2rem;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
-}
-
-.service-card:hover {
-    transform: translateY(-10px) rotate(3deg);
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 0 30px rgba(0, 243, 255, 0.2);
-}
-
-/* Calendario Estilo Cyber */
-.calendar-cyber {
-    background: rgba(0, 0, 0, 0.7);
-    border: 2px solid var(--neon-blue);
-    border-radius: 15px;
-    padding: 2rem;
-    margin: 2rem auto;
-    max-width: 800px;
-    box-shadow: 0 0 40px rgba(0, 243, 255, 0.1);
-}
-
-.day-cell {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(0, 243, 255, 0.1);
-    padding: 1rem;
-    color: var(--neon-blue);
-    position: relative;
-    overflow: hidden;
-}
-
-.day-cell.reservado {
-    background: var(--electric-pink);
-    color: white;
-    animation: glow 1.5s infinite alternate;
-}
-
-@keyframes glow {
-    from {
-        box-shadow: 0 0 5px var(--electric-pink);
-    }
-    to {
-        box-shadow: 0 0 20px var(--electric-pink);
-    }
-}
-
-/* Botón WhatsApp Cyber */
-.whatsapp-cyber {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    background: var(--lime-green);
-    color: var(--jet-black);
-    padding: 1rem 2rem;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    border: 2px solid transparent;
-    transition: all 0.3s ease;
-}
-
-.whatsapp-cyber:hover {
-    background: transparent;
-    border-color: var(--lime-green);
-    color: var(--lime-green);
-    transform: scale(1.05);
-}
-
-/* Galería Dinámica */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    padding: 2rem;
-}
-
-.gallery-item {
-    aspect-ratio: 1;
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.gallery-item:hover {
-    transform: scale(1.05);
-    z-index: 100;
-}
-
-/* Media Queries para Mobile */
-@media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .hero-title {
-        font-size: 3rem;
-    }
-    
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .whatsapp-cyber {
-        bottom: 1rem;
-        right: 1rem;
-        padding: 0.8rem 1.5rem;
-    }
-}
-
-/* Efectos Especiales */
-::selection {
-    background: var(--electric-pink);
-    color: white;
-}
-
-.scroll-effect {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease;
-}
-
-.scroll-effect.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-  </style>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#reservas">Reservas</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
+    <header class="header-main">
+        <nav class="nav-container">
+            <div class="logo">
+                <span>CASA</span><span class="logo-accent">HOUSE</span>
+            </div>
+            <div class="nav-links">
+                <a href="#ubicacion">Ubicación</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#galeria">Galería</a>
+                <a href="#contacto">Contacto</a>
+            </div>
         </nav>
     </header>
 
-    <section id="inicio">
-        <h1>Bienvenidos a CASA HOUSE</h1>
-        <p>Tu hostel en Guaymallén, a solo 15 minutos del centro de Mendoza.</p>
-        <a href="https://goo.gl/maps/ejemplo" target="_blank">Ver reseñas en Google Maps</a>
+    <section class="hero-section">
+        <div class="hero-overlay">
+            <div class="search-container">
+                <h1>Encuentra tu espacio perfecto</h1>
+                <div class="search-box">
+                    <div class="input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Check-in</label>
+                        <input type="date" id="checkin">
+                    </div>
+                    <div class="input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Check-out</label>
+                        <input type="date" id="checkout">
+                    </div>
+                    <div class="input-group">
+                        <label><i class="fas fa-user"></i> Huéspedes</label>
+                        <select id="huespedes">
+                            <option>1 huésped</option>
+                            <option>2 huéspedes</option>
+                            <option>3 huéspedes</option>
+                        </select>
+                    </div>
+                    <button class="search-btn">Ver disponibilidad</button>
+                </div>
+                <div class="promo-badge">
+                    <span>PROMO INAUGURACIÓN: $15,000/noche</span>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="servicios">
-        <h2>Nuestros Servicios</h2>
-        <ul>
-            <li>Cocina</li>
-            <li>Desayuno incluido</li>
-            <li>Lavandería</li>
-            <li>TV</li>
-            <li>Wi-Fi</li>
-            <li>Área de trabajo</li>
-            <li>Piscina</li>
-            <li>Tranquilidad</li>
-        </ul>
-        <p>Horario de atención: 10:15 a 10:15</p>
+    <section class="features-section" id="servicios">
+        <h2 class="section-title">Nuestras Ventajas</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-wifi"></i>
+                <h3>Wi-Fi Ultra Rápido</h3>
+                <p>Conexión de 200MB simétricos en todas las áreas</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-swimming-pool"></i>
+                <h3>Piscina Climatizada</h3>
+                <p>Abierta las 24hs con sistema de hidromasaje</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-utensils"></i>
+                <h3>Desayuno Premium</h3>
+                <p>Buffet con productos locales y opciones veganas</p>
+            </div>
+        </div>
     </section>
 
-    <section id="reservas">
-        <h2>Reserva tu estancia</h2>
-        <p>Promoción de inauguración: $15,000 la noche.</p>
-        <div id="calendario"></div>
-        <button id="whatsapp-btn">Reservar por WhatsApp</button>
+    <section class="calendar-section">
+        <h2 class="section-title">Disponibilidad</h2>
+        <div class="calendar-controls">
+            <button class="month-nav"><i class="fas fa-chevron-left"></i></button>
+            <h3 class="current-month">Febrero 2024</h3>
+            <button class="month-nav"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div id="calendario" class="calendar-grid"></div>
     </section>
 
-    <footer id="contacto">
-        <p>Contacto: info@casahouse.com | Tel: +54 9 261 123 4567</p>
+    <section class="location-section" id="ubicacion">
+        <div class="location-info">
+            <h2>Ubicación Privilegiada</h2>
+            <p>Guaymallén, Mendoza - A 15 minutos del centro</p>
+            <div class="location-features">
+                <div class="location-item">
+                    <i class="fas fa-subway"></i>
+                    <span>Estación de metro a 300m</span>
+                </div>
+                <div class="location-item">
+                    <i class="fas fa-mountain"></i>
+                    <span>Vistas a la cordillera</span>
+                </div>
+            </div>
+            <a href="https://goo.gl/maps/ejemplo" target="_blank" class="map-link">
+                <i class="fas fa-map-marked-alt"></i> Ver en Google Maps
+            </a>
+        </div>
+        <div class="location-map">
+            <!-- Insertar iframe de Google Maps aquí -->
+        </div>
+    </section>
+
+    <footer class="main-footer" id="contacto">
+        <div class="footer-column">
+            <h4>Contacto</h4>
+            <p><i class="fas fa-phone"></i> +54 9 261 123 4567</p>
+            <p><i class="fas fa-envelope"></i> info@casahouse.com</p>
+            <p><i class="fas fa-clock"></i> 24/7 atención al cliente</p>
+        </div>
+        <div class="footer-column">
+            <h4>Redes Sociales</h4>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+        <div class="footer-column">
+            <h4>Certificaciones</h4>
+            <img src="safe-travel.png" alt="Safe Travels" class="certification">
+            <img src="eco-friendly.png" alt="Eco Friendly" class="certification">
+        </div>
     </footer>
 
-    <script src="script.js"></script>
-  <script>
+    <a href="https://wa.me/5492611234567" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-    document.addEventListener('DOMContentLoaded', function() {
-    const calendario = document.getElementById('calendario');
-    const fechaActual = new Date();
-    const mes = fechaActual.getMonth();
-    const año = fechaActual.getFullYear();
-
-    function generarCalendario(mes, año) {
-        const diasEnMes = new Date(año, mes + 1, 0).getDate();
-        let tabla = '<table><tr>';
-        const diasSemana = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
-
-        for (let dia of diasSemana) {
-            tabla += `<th>${dia}</th>`;
-        }
-
-        tabla += '</tr><tr>';
-        const primerDia = new Date(año, mes, 1).getDay();
-
-        for (let i = 0; i < primerDia; i++) {
-            tabla += '<td></td>';
-        }
-
-        for (let dia = 1; dia <= diasEnMes; dia++) {
-            if ((dia + primerDia - 1) % 7 === 0) {
-                tabla += '</tr><tr>';
-            }
-            const claseReservado = (dia === 10 || dia === 15 || dia === 20) ? 'reservado' : '';
-            tabla += `<td class="${claseReservado}">${dia}</td>`;
-        }
-
-        tabla += '</tr></table>';
-        return tabla;
+    <style>
+    /* Estilos mejorados y completos */
+    :root {
+        --primary-color: #FF385C;
+        --secondary-color: #006AFF;
+        --dark-bg: #1A1A1A;
+        --light-text: #FFFFFF;
+        --accent-color: #00E88F;
+        --font-title: 'Bebas Neue', cursive;
+        --font-body: 'Montserrat', sans-serif;
     }
 
-    calendario.innerHTML = generarCalendario(mes, año);
+    body {
+        font-family: var(--font-body);
+        color: var(--light-text);
+        background: var(--dark-bg);
+        margin: 0;
+    }
 
-    document.getElementById('whatsapp-btn').addEventListener('click', function() {
-        const mensaje = encodeURIComponent('Hola, me gustaría hacer una reserva en CASA HOUSE.');
-        window.open(`https://wa.me/5492611234567?text=${mensaje}`, '_blank');
+    .header-main {
+        background: rgba(0, 0, 0, 0.9);
+        padding: 1rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+    }
+
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-family: var(--font-title);
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+    }
+
+    .logo-accent {
+        color: var(--primary-color);
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .nav-links a {
+        color: var(--light-text);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: var(--accent-color);
+    }
+
+    .hero-section {
+        height: 80vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                    url('https://images.unsplash.com/photo-1564501049412-61c2a3083791') center/cover;
+        position: relative;
+    }
+
+    .search-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        max-width: 1200px;
+    }
+
+    .search-box {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .input-group {
+        position: relative;
+    }
+
+    .input-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--accent-color);
+    }
+
+    .input-group input, .input-group select {
+        width: 100%;
+        padding: 0.8rem;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        color: var(--light-text);
+    }
+
+    .search-btn {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .search-btn:hover {
+        transform: translateY(-2px);
+    }
+
+    .features-grid {
+        max-width: 1200px;
+        margin: 4rem auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        padding: 0 2rem;
+    }
+
+    .feature-card {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 2rem;
+        border-radius: 15px;
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-10px);
+    }
+
+    .feature-card i {
+        font-size: 2.5rem;
+        color: var(--accent-color);
+        margin-bottom: 1rem;
+    }
+
+    .calendar-grid {
+        max-width: 1200px;
+        margin: 2rem auto;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 5px;
+        padding: 0 2rem;
+    }
+
+    .calendar-cell {
+        padding: 1rem;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        position: relative;
+    }
+
+    .calendar-cell.reservado {
+        background: var(--primary-color);
+        color: white;
+        animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+
+    .whatsapp-btn {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: #25D366;
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease;
+    }
+
+    .whatsapp-btn:hover {
+        transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+        .features-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .nav-links {
+            display: none;
+        }
+        
+        .search-box {
+            grid-template-columns: 1fr;
+        }
+    }
+    </style>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Calendario interactivo
+        const calendario = document.getElementById('calendario');
+        const monthDisplay = document.querySelector('.current-month');
+        let currentDate = new Date();
+
+        function generarCalendario(fecha) {
+            const start = new Date(fecha.getFullYear(), fecha.getMonth(), 1);
+            const end = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0);
+            const diasMes = end.getDate();
+            const primerDia = start.getDay();
+            
+            let html = '';
+            
+            // Encabezados días de la semana
+            ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'].forEach(dia => {
+                html += `<div class="calendar-cell header">${dia}</div>`;
+            });
+
+            // Días vacíos iniciales
+            for(let i = 0; i < primerDia; i++) {
+                html += '<div class="calendar-cell empty"></div>';
+            }
+
+            // Días del mes
+            for(let dia = 1; dia <= diasMes; dia++) {
+                const fechaActual = new Date(fecha.getFullYear(), fecha.getMonth(), dia);
+                const hoy = fechaActual.toDateString() === new Date().toDateString();
+                const reservado = dia % 4 === 0; // Ejemplo de días reservados
+                
+                html += `
+                    <div class="calendar-cell ${reservado ? 'reservado' : ''} ${hoy ? 'hoy' : ''}">
+                        ${dia}
+                        ${reservado ? '<div class="estado">Reservado</div>' : ''}
+                    </div>`;
+            }
+
+            calendario.innerHTML = html;
+            monthDisplay.textContent = fecha.toLocaleString('es-ES', { month: 'long', year: 'numeric' });
+        }
+
+        document.querySelectorAll('.month-nav').forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentDate = new Date(currentDate.setMonth(
+                    currentDate.getMonth() + (btn.classList.contains('fa-chevron-left') ? -1 : 1
+                ));
+                generarCalendario(currentDate);
+            });
+        });
+
+        generarCalendario(currentDate);
+
+        // Sistema de reservas
+        document.querySelector('.search-btn').addEventListener('click', () => {
+            const checkin = document.getElementById('checkin').value;
+            const checkout = document.getElementById('checkout').value;
+            const huespedes = document.getElementById('huespedes').value;
+            
+            if(!checkin || !checkout) {
+                alert('Por favor seleccione fechas de check-in y check-out');
+                return;
+            }
+            
+            const mensaje = `¡Hola! Quiero reservar desde ${checkin} hasta ${checkout} para ${huespedes}.`;
+            window.open(`https://wa.me/5492611234567?text=${encodeURIComponent(mensaje)}`, '_blank');
+        });
     });
-});
-
-  </script>
+    </script>
 </body>
 </html>
