@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CASA HOUSE - Hostel en Mendoza</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+  <style>
+
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+section {
+    padding: 20px;
+    text-align: center;
+}
+
+#servicios ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#servicios ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+#calendario {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px;
+    border-collapse: collapse;
+}
+
+#calendario td, #calendario th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.reservado {
+    background-color: #f44336;
+    color: white;
+}
+
+#whatsapp-btn {
+    background-color: #25D366;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#whatsapp-btn:hover {
+    background-color: #1ebe57;
+}
+
+  </style>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#reservas">Reservas</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio">
+        <h1>Bienvenidos a CASA HOUSE</h1>
+        <p>Tu hostel en Guaymallén, a solo 15 minutos del centro de Mendoza.</p>
+        <a href="https://goo.gl/maps/ejemplo" target="_blank">Ver reseñas en Google Maps</a>
+    </section>
+
+    <section id="servicios">
+        <h2>Nuestros Servicios</h2>
+        <ul>
+            <li>Cocina</li>
+            <li>Desayuno incluido</li>
+            <li>Lavandería</li>
+            <li>TV</li>
+            <li>Wi-Fi</li>
+            <li>Área de trabajo</li>
+            <li>Piscina</li>
+            <li>Tranquilidad</li>
+        </ul>
+        <p>Horario de atención: 10:15 a 10:15</p>
+    </section>
+
+    <section id="reservas">
+        <h2>Reserva tu estancia</h2>
+        <p>Promoción de inauguración: $15,000 la noche.</p>
+        <div id="calendario"></div>
+        <button id="whatsapp-btn">Reservar por WhatsApp</button>
+    </section>
+
+    <footer id="contacto">
+        <p>Contacto: info@casahouse.com | Tel: +54 9 261 123 4567</p>
+    </footer>
+
+    <script src="script.js"></script>
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const calendario = document.getElementById('calendario');
+    const fechaActual = new Date();
+    const mes = fechaActual.getMonth();
+    const año = fechaActual.getFullYear();
+
+    function generarCalendario(mes, año) {
+        const diasEnMes = new Date(año, mes + 1, 0).getDate();
+        let tabla = '<table><tr>';
+        const diasSemana = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+
+        for (let dia of diasSemana) {
+            tabla += `<th>${dia}</th>`;
+        }
+
+        tabla += '</tr><tr>';
+        const primerDia = new Date(año, mes, 1).getDay();
+
+        for (let i = 0; i < primerDia; i++) {
+            tabla += '<td></td>';
+        }
+
+        for (let dia = 1; dia <= diasEnMes; dia++) {
+            if ((dia + primerDia - 1) % 7 === 0) {
+                tabla += '</tr><tr>';
+            }
+            const claseReservado = (dia === 10 || dia === 15 || dia === 20) ? 'reservado' : '';
+            tabla += `<td class="${claseReservado}">${dia}</td>`;
+        }
+
+        tabla += '</tr></table>';
+        return tabla;
+    }
+
+    calendario.innerHTML = generarCalendario(mes, año);
+
+    document.getElementById('whatsapp-btn').addEventListener('click', function() {
+        const mensaje = encodeURIComponent('Hola, me gustaría hacer una reserva en CASA HOUSE.');
+        window.open(`https://wa.me/5492611234567?text=${mensaje}`, '_blank');
+    });
+});
+
+  </script>
+</body>
+</html>
